@@ -2,15 +2,18 @@
 
 import React, { useEffect, useState } from "react";
 
+const COUNT_DOWN_SECS = 5;
+
 function App() {
   // #region ViewModel Logic
-  const [counter, setCounter] = useState(10);
+  const [counter, setCounter] = useState(COUNT_DOWN_SECS);
+
   useEffect(() => {
     const reduceCounter = setInterval(
       () => setCounter((currentCounter) => currentCounter - 1),
       1000,
     );
-    setTimeout(() => clearInterval(reduceCounter), 10000);
+    setTimeout(() => clearInterval(reduceCounter), 1000 * COUNT_DOWN_SECS);
   }, []);
   // #endregion ViewModel Logic
 
